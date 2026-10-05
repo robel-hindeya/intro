@@ -1211,7 +1211,7 @@ export default function Home() {
           onClick={() => setIsExpertModalOpen(false)}
         >
           <div
-            className="modal-content"
+            className="modal-content expert-apply-modal"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -1220,93 +1220,229 @@ export default function Home() {
               className="modal-close-btn"
               aria-label="Close modal"
             >
-              ✕
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
             </button>
 
-            <div className="p-8">
-              {!expertFormSubmitted ? (
-                <>
-                  <h3 className="text-2xl font-bold text-[#1a1921] mb-2">
+            {!expertFormSubmitted ? (
+              <div className="expert-modal-inner">
+                {/* Header */}
+                <div className="expert-modal-header">
+                  <div className="expert-modal-pill">
+                    <svg className="w-3.5 h-3.5 text-amber-500 fill-amber-500" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <span>JOIN THE ROSTER</span>
+                  </div>
+                  <h2 className="expert-modal-title">
                     Become an Intro Expert
-                  </h3>
-                  <p className="text-sm text-[#6a6871] mb-6">
-                    Share your experience, monetize your free time, and give advice to high-intent entrepreneurs, designers, and builders worldwide.
+                  </h2>
+                  <p className="expert-modal-desc">
+                    Share your experience, monetize your free time, and give 1-on-1 advice to high-intent entrepreneurs, designers, and builders worldwide.
                   </p>
 
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      setExpertFormSubmitted(true);
-                    }}
-                  >
-                    <label className="booking-section-label">Full Name</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Jane Doe"
-                      className="form-input-field"
-                    />
-
-                    <label className="booking-section-label">Your Current Role &amp; Company</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Co-founder @ Acme Corp, VP Design"
-                      className="form-input-field"
-                    />
-
-                    <label className="booking-section-label">LinkedIn / Website URL</label>
-                    <input
-                      type="url"
-                      required
-                      placeholder="https://linkedin.com/in/janedoe"
-                      className="form-input-field"
-                    />
-
-                    <label className="booking-section-label">Primary Topic / Category</label>
-                    <select className="form-input-field bg-white">
-                      <option>Career &amp; Business</option>
-                      <option>Home Decor &amp; Interior Design</option>
-                      <option>Startups &amp; Fundraising</option>
-                      <option>Style &amp; Beauty</option>
-                      <option>Wellness &amp; Health</option>
-                      <option>Engineering &amp; AI</option>
-                    </select>
-
-                    <label className="booking-section-label">Target Rate per Session</label>
-                    <input
-                      type="text"
-                      placeholder="Birr 2,500 / 30 mins"
-                      className="form-input-field"
-                    />
-
-                    <button type="submit" className="btn-confirm-booking mt-2">
-                      Submit Expert Application
-                    </button>
-                  </form>
-                </>
-              ) : (
-                <div className="text-center py-8">
-                  <div className="success-check-circle">✓</div>
-                  <h3 className="text-2xl font-bold text-[#1a1921] mb-2">
-                    Application Received!
-                  </h3>
-                  <p className="text-[#6a6871] max-w-md mx-auto mb-6">
-                    Thank you for applying. Our curation committee reviews applications weekly. We will be in touch via email.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIsExpertModalOpen(false);
-                      setExpertFormSubmitted(false);
-                    }}
-                    className="bg-[#1a1921] text-white px-8 py-3 rounded-full font-semibold"
-                  >
-                    Close
-                  </button>
+                  {/* Trust / Perks */}
+                  <div className="expert-modal-perks">
+                    <div className="expert-perk-item">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>100% Free to Apply</span>
+                    </div>
+                    <div className="expert-perk-item">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Set Your Own Rates</span>
+                    </div>
+                    <div className="expert-perk-item">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Keep Full Control of Calendar</span>
+                    </div>
+                  </div>
                 </div>
-              )}
-            </div>
+
+                {/* Form */}
+                <form
+                  className="expert-modal-form"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setExpertFormSubmitted(true);
+                  }}
+                >
+                  <div className="expert-form-grid">
+                    {/* Full Name */}
+                    <div className="expert-form-group">
+                      <label className="expert-field-label">
+                        Full Name <span className="text-red-500">*</span>
+                      </label>
+                      <div className="expert-input-wrap">
+                        <svg className="expert-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                          <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <input
+                          type="text"
+                          required
+                          placeholder="Jane Doe"
+                          className="expert-input-field"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Work Email */}
+                    <div className="expert-form-group">
+                      <label className="expert-field-label">
+                        Work Email <span className="text-red-500">*</span>
+                      </label>
+                      <div className="expert-input-wrap">
+                        <svg className="expert-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                          <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <input
+                          type="email"
+                          required
+                          placeholder="jane@company.com"
+                          className="expert-input-field"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="expert-form-grid">
+                    {/* Role & Company */}
+                    <div className="expert-form-group">
+                      <label className="expert-field-label">
+                        Current Role &amp; Company <span className="text-red-500">*</span>
+                      </label>
+                      <div className="expert-input-wrap">
+                        <svg className="expert-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                        <input
+                          type="text"
+                          required
+                          placeholder="e.g. Co-founder @ Acme Corp, VP Design"
+                          className="expert-input-field"
+                        />
+                      </div>
+                    </div>
+
+                    {/* LinkedIn / Website URL */}
+                    <div className="expert-form-group">
+                      <label className="expert-field-label">
+                        LinkedIn / Portfolio URL <span className="text-red-500">*</span>
+                      </label>
+                      <div className="expert-input-wrap">
+                        <svg className="expert-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
+                        <input
+                          type="url"
+                          required
+                          placeholder="https://linkedin.com/in/janedoe"
+                          className="expert-input-field"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="expert-form-grid">
+                    {/* Primary Topic / Category */}
+                    <div className="expert-form-group">
+                      <label className="expert-field-label">
+                        Primary Topic / Category <span className="text-red-500">*</span>
+                      </label>
+                      <div className="expert-input-wrap">
+                        <svg className="expert-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                          <polyline points="2 17 12 22 22 17"></polyline>
+                          <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        <select className="expert-select-field" defaultValue="Career & Business">
+                          <option value="Career & Business">Career &amp; Business</option>
+                          <option value="Startups & Fundraising">Startups &amp; Fundraising</option>
+                          <option value="Home Decor & Interior Design">Home Decor &amp; Interior Design</option>
+                          <option value="Style & Beauty">Style &amp; Beauty</option>
+                          <option value="Engineering & AI">Engineering &amp; AI</option>
+                          <option value="Wellness & Health">Wellness &amp; Health</option>
+                        </select>
+                        <svg className="expert-select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* Target Rate */}
+                    <div className="expert-form-group">
+                      <label className="expert-field-label">
+                        Target Rate per Session (Birr)
+                      </label>
+                      <div className="expert-input-wrap">
+                        <svg className="expert-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <path d="M12 6v12M15 9.5c0-1.38-1.34-2.5-3-2.5s-3 1.12-3 2.5 1.34 2.5 3 2.5 3 1.12 3 2.5-1.34 2.5-3 2.5-3-1.12-3-2.5"></path>
+                        </svg>
+                        <input
+                          type="text"
+                          placeholder="Birr 2,500 / 30 mins"
+                          className="expert-input-field"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="submit" className="expert-submit-btn">
+                    <span>Submit Expert Application</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+
+                  <p className="expert-trust-note">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span>Applications reviewed weekly by curation committee. No commitment.</span>
+                  </p>
+                </form>
+              </div>
+            ) : (
+              /* Success View */
+              <div className="expert-modal-success">
+                <div className="expert-success-icon-wrap">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <div className="expert-success-badge">APPLICATION RECEIVED</div>
+                <h3 className="expert-success-title">
+                  Thank You for Applying!
+                </h3>
+                <p className="expert-success-desc">
+                  Our curation committee reviews applications on a rolling weekly basis. If your profile matches our community standards, you will receive an invitation link via email to complete your verified onboarding.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsExpertModalOpen(false);
+                    setExpertFormSubmitted(false);
+                  }}
+                  className="expert-success-btn"
+                >
+                  Return to Intro
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}
