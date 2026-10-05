@@ -78,10 +78,10 @@ export default function GiftSessionClient({ featuredExperts = [], allExperts = [
 
   // Quick message presets
   const messageSuggestions = [
-    '🎂 Happy Birthday! Pick any founder on Intro you want to learn from!',
-    '🚀 Congrats on launching your startup! Get direct advice from a top founder.',
-    '💡 A little inspiration for your next big venture. Enjoy the session!',
-    '🎓 Best of luck with your career growth. Learn from the world’s best!',
+    'Happy Birthday! Pick any founder on Intro you want to learn from!',
+    'Congrats on launching your startup! Get direct advice from a top founder.',
+    'A little inspiration for your next big venture. Enjoy the session!',
+    'Best of luck with your career growth. Learn from the world’s best!',
   ];
 
   const handlePurchaseSubmit = (e) => {
@@ -171,7 +171,10 @@ export default function GiftSessionClient({ featuredExperts = [], allExperts = [
         {/* Hero Section */}
         <section className="gift-hero-banner">
           <div className="gift-hero-pill">
-            <span>✨</span> THE MOST IMPACTFUL GIFT
+            <svg className="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z" />
+            </svg>
+            <span>THE MOST IMPACTFUL GIFT</span>
           </div>
           <h1 className="gift-hero-h1">
             Gift a 1-on-1 Video Session with World Leaders
@@ -492,7 +495,11 @@ export default function GiftSessionClient({ featuredExperts = [], allExperts = [
                     onClick={() => setDeliveryOption('instant')}
                     className={`delivery-option-btn ${deliveryOption === 'instant' ? 'active' : ''}`}
                   >
-                    <span className="delivery-icon">⚡</span>
+                    <span className="delivery-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-amber-500">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                      </svg>
+                    </span>
                     <div className="text-left">
                       <div className="font-bold text-sm">Deliver Instantly</div>
                       <div className="text-xs text-gray-500">Sent immediately upon checkout</div>
@@ -504,7 +511,14 @@ export default function GiftSessionClient({ featuredExperts = [], allExperts = [
                     onClick={() => setDeliveryOption('scheduled')}
                     className={`delivery-option-btn ${deliveryOption === 'scheduled' ? 'active' : ''}`}
                   >
-                    <span className="delivery-icon">📅</span>
+                    <span className="delivery-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                    </span>
                     <div className="text-left">
                       <div className="font-bold text-sm">Schedule for Later</div>
                       <div className="text-xs text-gray-500">Pick a specific date/holiday</div>
@@ -659,7 +673,16 @@ export default function GiftSessionClient({ featuredExperts = [], allExperts = [
             </button>
 
             <div className="gift-success-body">
-              <div className="gift-success-badge">🎉 GIFT CARD ISSUED</div>
+              <div className="gift-success-badge inline-flex items-center justify-center gap-1.5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 12 20 22 4 22 4 12" />
+                  <rect x="2" y="7" width="20" height="5" />
+                  <line x1="12" y1="22" x2="12" y2="7" />
+                  <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
+                  <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+                </svg>
+                <span>GIFT CARD ISSUED</span>
+              </div>
               <h2 className="gift-success-title">Your Gift Is Ready!</h2>
               <p className="gift-success-sub">
                 A digital pass of <strong>Birr {currentAmount.toLocaleString()}</strong> has been generated for <strong>{recipientName || 'your recipient'}</strong>.

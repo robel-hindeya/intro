@@ -472,7 +472,12 @@ export default function Home() {
               }}
               className={`category-pill ${homeTab === 'all' ? 'active' : ''}`}
             >
-              <span>✨</span>
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                <rect x="3" y="14" width="7" height="7" rx="1.5" />
+              </svg>
               <span>All</span>
             </button>
             <button
@@ -484,7 +489,9 @@ export default function Home() {
               }}
               className={`category-pill ${homeTab === 'experts' ? 'active' : ''}`}
             >
-              <span>⭐️</span>
+              <svg className="w-4 h-4 text-amber-500 fill-amber-500" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
               <span>Top Experts</span>
             </button>
             <button
@@ -496,7 +503,12 @@ export default function Home() {
               }}
               className={`category-pill ${homeTab === 'founders' ? 'active' : ''}`}
             >
-              <span>🚀</span>
+              <svg className="w-4 h-4 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+              </svg>
               <span>Iconic Founders</span>
             </button>
             <button
@@ -508,7 +520,10 @@ export default function Home() {
               }}
               className={`category-pill ${homeTab === 'seniors' ? 'active' : ''}`}
             >
-              <span>💼</span>
+              <svg className="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
               <span>Senior Professionals</span>
             </button>
           </div>
@@ -1174,7 +1189,12 @@ export default function Home() {
                 ))
               ) : (
                 <div className="search-empty-state">
-                  <div className="search-empty-icon">🔍</div>
+                  <div className="search-empty-icon flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                  </div>
                   <div className="search-empty-title">No experts found matching &ldquo;{modalSearchQuery}&rdquo;</div>
                   <div className="search-empty-hint">Try searching by topic, company, industry, or reset the category filter.</div>
                 </div>

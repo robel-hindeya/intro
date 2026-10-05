@@ -620,7 +620,12 @@ export default function ExpertsClient({ allExperts = [] }) {
         ) : (
           /* Empty State */
           <div className="experts-empty-state">
-            <div className="empty-icon">🔍</div>
+            <div className="empty-icon flex items-center justify-center">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
             <h3 className="empty-title">No experts match your filters</h3>
             <p className="empty-sub">
               Try adjusting your search query, selecting &ldquo;All Experts&rdquo;, or resetting your filters.
@@ -881,7 +886,12 @@ export default function ExpertsClient({ allExperts = [] }) {
                 ))
               ) : (
                 <div className="search-empty-state">
-                  <div className="search-empty-icon">🔍</div>
+                  <div className="search-empty-icon flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                  </div>
                   <div className="search-empty-title">No experts found matching &ldquo;{modalSearchQuery}&rdquo;</div>
                   <div className="search-empty-hint">Try searching by topic, company, industry, or reset the category filter.</div>
                 </div>

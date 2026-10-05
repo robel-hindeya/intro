@@ -655,7 +655,10 @@ button {
 }
 
 .category-pill {
-  padding: 9px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
   border-radius: 9999px;
   font-size: 14px;
   font-weight: 600;
@@ -668,10 +671,19 @@ button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
+.category-pill svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
 .category-pill:hover {
   border-color: #cfc8ba;
   color: var(--text-dark);
   transform: translateY(-1px);
+}
+
+.category-pill:hover svg {
+  transform: scale(1.1);
 }
 
 .category-pill.active {
@@ -679,6 +691,16 @@ button {
   color: #ffffff;
   border-color: var(--text-dark);
   box-shadow: 0 4px 12px rgba(20, 19, 24, 0.2);
+}
+
+.category-pill.active svg {
+  color: #ffffff !important;
+  stroke: #ffffff;
+}
+
+.category-pill.active svg.fill-amber-500 {
+  fill: #fbbf24 !important;
+  color: #fbbf24 !important;
 }
 
 .category-actions-right {
