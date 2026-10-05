@@ -5050,7 +5050,7 @@ button {
 
 .home-group-header {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
   padding-bottom: 16px;

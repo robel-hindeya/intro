@@ -473,7 +473,7 @@ export default function Home() {
               className={`category-pill ${homeTab === 'all' ? 'active' : ''}`}
             >
               <span>✨</span>
-              <span>All Curated (24)</span>
+              <span>All</span>
             </button>
             <button
               type="button"
@@ -485,7 +485,7 @@ export default function Home() {
               className={`category-pill ${homeTab === 'experts' ? 'active' : ''}`}
             >
               <span>⭐️</span>
-              <span>8 Experts</span>
+              <span>Top Experts</span>
             </button>
             <button
               type="button"
@@ -497,7 +497,7 @@ export default function Home() {
               className={`category-pill ${homeTab === 'founders' ? 'active' : ''}`}
             >
               <span>🚀</span>
-              <span>8 Founders</span>
+              <span>Iconic Founders</span>
             </button>
             <button
               type="button"
@@ -509,14 +509,14 @@ export default function Home() {
               className={`category-pill ${homeTab === 'seniors' ? 'active' : ''}`}
             >
               <span>💼</span>
-              <span>8 Senior Professionals</span>
+              <span>Senior Professionals</span>
             </button>
           </div>
 
           <div className="category-actions-right">
             <span className="category-counter">
               {homeTab === 'all'
-                ? '24 Curated (8 Experts • 8 Founders • 8 Seniors)'
+                ? `${allCuratedCombined.length} Experts`
                 : homeTab === 'experts'
                 ? `${curatedExperts.length} Experts`
                 : homeTab === 'founders'
@@ -541,21 +541,9 @@ export default function Home() {
       {/* Experts Directory */}
       <section id="experts-directory" className="experts-section">
         <div className="experts-container">
-          <div className="section-header-wrap">
-            <div>
-              <h2 className="section-heading">
-                {homeTab === 'all'
-                  ? 'Curated Showcase'
-                  : homeTab === 'experts'
-                  ? 'Top Experts'
-                  : homeTab === 'founders'
-                  ? 'Iconic Founders'
-                  : 'Senior Professionals'}
-                <span className="text-[#8c8996] font-normal text-xl ml-3 hidden sm:inline">
-                  • 8 Experts, 8 Founders, 8 Senior Professionals
-                </span>
-              </h2>
-              {searchQuery && (
+          {searchQuery && (
+            <div className="section-header-wrap">
+              <div>
                 <p className="section-subtext">
                   Showing results matching &ldquo;<strong>{searchQuery}</strong>&rdquo;
                   <button
@@ -566,9 +554,9 @@ export default function Home() {
                     Clear search
                   </button>
                 </p>
-              )}
+              </div>
             </div>
-          </div>
+          )}
 
           {allCuratedCombined.length === 0 ? (
             <div className="text-center py-20 bg-white rounded-2xl border border-[#e5dfd5]">
@@ -598,21 +586,9 @@ export default function Home() {
               {(homeTab === 'all' || homeTab === 'experts') && curatedExperts.length > 0 && (
                 <div className="home-group-section">
                   <div className="home-group-header">
-                    <div>
-                      <div className="home-group-tag tag-experts">
-                        <span>⭐️</span>
-                        <span>Selection • 8 Experts</span>
-                      </div>
-                      <h3 className="home-group-title">
-                        Top Experts
-                      </h3>
-                      <p className="home-group-desc">
-                        Renowned interior designers, celebrity stylists, and world-class domain specialists ready for 1-on-1 consultations.
-                      </p>
-                    </div>
-                    <div className="home-group-count-pill">
-                      8 Experts Only
-                    </div>
+                    <h2 className="home-group-title">
+                      Top Experts
+                    </h2>
                   </div>
 
                   <div className="experts-grid">
@@ -672,21 +648,9 @@ export default function Home() {
               {(homeTab === 'all' || homeTab === 'founders') && curatedFounders.length > 0 && (
                 <div className="home-group-section">
                   <div className="home-group-header">
-                    <div>
-                      <div className="home-group-tag tag-founders">
-                        <span>🚀</span>
-                        <span>Venture Leaders • 8 Founders</span>
-                      </div>
-                      <h3 className="home-group-title">
-                        Iconic Founders
-                      </h3>
-                      <p className="home-group-desc">
-                        Pioneering entrepreneurs who built and scaled household companies: Casper, Drybar, Nextdoor, Wag, General Assembly &amp; OfferUp.
-                      </p>
-                    </div>
-                    <div className="home-group-count-pill">
-                      8 Founders Only
-                    </div>
+                    <h2 className="home-group-title">
+                      Iconic Founders
+                    </h2>
                   </div>
 
                   <div className="experts-grid">
@@ -746,21 +710,9 @@ export default function Home() {
               {(homeTab === 'all' || homeTab === 'seniors') && curatedSeniors.length > 0 && (
                 <div className="home-group-section">
                   <div className="home-group-header">
-                    <div>
-                      <div className="home-group-tag tag-seniors">
-                        <span>💼</span>
-                        <span>Executive Suite • 8 Senior Professionals</span>
-                      </div>
-                      <h3 className="home-group-title">
-                        Senior Professionals
-                      </h3>
-                      <p className="home-group-desc">
-                        C-level operators, VPs, and partners from Google, YouTube, Facebook, Uber, Index Ventures, and Paxos.
-                      </p>
-                    </div>
-                    <div className="home-group-count-pill">
-                      8 Professionals Only
-                    </div>
+                    <h2 className="home-group-title">
+                      Senior Professionals
+                    </h2>
                   </div>
 
                   <div className="experts-grid">
@@ -816,22 +768,7 @@ export default function Home() {
                 </div>
               )}
 
-              {/* Full Marketplace Callout Banner */}
-              <div className="home-directory-cta-banner">
-                <div className="home-directory-cta-content">
-                  <div className="inline-block px-3 py-1 rounded-full bg-white/10 text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
-                    400+ Total Experts
-                  </div>
-                  <h3>Looking for more specialists?</h3>
-                  <p>
-                    Explore our full marketplace featuring 400+ vetted entrepreneurs, tech innovators, interior designers, and executives across every domain.
-                  </p>
-                </div>
-                <Link href="/experts" className="home-directory-cta-btn">
-                  <span>Browse All 400+ Experts</span>
-                  <span>→</span>
-                </Link>
-              </div>
+
             </>
           )}
         </div>
