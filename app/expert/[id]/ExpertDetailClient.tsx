@@ -624,7 +624,7 @@ export default function ExpertDetailClient({ expert, allExperts }) {
                 className="footer-logo-img"
               />
               <p className="footer-tagline">
-                Book the world’s most in-demand experts &amp; get advice over a video call.
+                Book Africa’s most in-demand experts &amp; get advice over a video call.
               </p>
             </div>
             <div className="footer-links-grid">

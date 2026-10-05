@@ -278,7 +278,7 @@ export default function Home() {
           </div>
 
           <h1 className="hero-title">
-            Book the world’s most in-demand experts &amp; get advice over a video call
+            Book Africa’s most in-demand experts &amp; get advice over a video call
           </h1>
 
           <p className="hero-subtitle">
@@ -930,7 +930,7 @@ export default function Home() {
                 className="footer-logo-img"
               />
               <p className="footer-tagline">
-                Book the world’s most in-demand experts &amp; get advice over a video call. Connect with industry pioneers in tech, design, business, and beyond.
+                Book Africa’s most in-demand experts &amp; get advice over a video call. Connect with industry pioneers in tech, design, business, and beyond.
               </p>
               <button
                 type="button"
